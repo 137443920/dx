@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>任务七实现常见的技术产品官网页面架构及样式布局</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#nav div{float: right;margin-right: 80px;}
+		#nav span{font: bold 25px "黑体";padding-left: 20px;}
+		#nav ul li{list-style: none;display: inline;margin-right: 20px;padding-bottom: 15px;font: 12px;color: #aaa}
+		#nav li:hover{border-bottom: 2px solid #EE484A;color: #EE484A;cursor: pointer;}
+		
+		#head{background: #aaa;overflow: hidden;width: 100%;height: 600px;}
+		#head img{opacity:0.8;float: left;}
+		#head #text{position: absolute;top:40%;left: 10%}
+		#head p:first-child{font: 60px "微软雅黑";color: white}
+		#head p:nth-child(2){font: 24px "微软雅黑";color: white}
+		#head p:last-child{width: 200px;height:50px;background: #EE484A;text-align: center;padding-top: 10px;}
+		#head a{font: 30px "微软雅黑";color: white;text-decoration: none;}
+
+		#solgan{padding:2% 0 2% 0%;}
+		#solgan td{text-align: center;padding:1%;width: 25%;color:grey}
+		#solgan table{width: 100%;}
+		#solgan2 td+td{border-left: 3px solid #aaa;}
+
+		#search-world{width: 100%;height:1080px;background-color: #eee;position: relative;text-align: center;}
+		#search-world h1{font: 54px "宋体";color:grey;}
+		#search{background: url(img/9.jpg);height:210px;padding-top: 110px;width: 100%}
+		#search h2,p{color: white}
+		#search input{width: 15%;height: 25px;}
+		#search-button{background-color: #B40000;width: 15%;height: 30px;border:0px solid #ccc;cursor:pointer;color: white}
+
+		#activity img{width: 90%;height: 300px;border:1px solid #aaa;padding: 10px;}
+		#activity div{width: 18%;height: 500px;float: left;margin:3% 0 0 5%;}
+		#activity p{color: grey;margin-top: -10px;font-size: 10px;}
+
+		#about{text-align: center;}
+		#about div:first-child{background: url(img/3.jpg);width: 66%;height: 454px;padding-top: 150px;float: left;}
+		#about div:first-child h1{color: white;font: 64px "黑体";line-height: 0px;}
+		#about div:first-child h2{color: white;font:bold 120px "黑体";line-height: 0px;letter-spacing: 25px;}
+		#about div:first-child p{color: white;font-size: 24px;}
+		#about div:nth-of-type(2){width:33%; height: 454px;padding-top:150px;text-align: center;position: relative;float:left;}
+		#about div:nth-of-type(2) p{color: grey;width: 50%;position: absolute;left: 25%;}
+		#about #about-list{position: absolute;bottom:25%;left: 40%;}
+		#about-list a{background-color:#DF4C4C;text-decoration:none;border:1px solid #DF4C4C;color: white;}
+		#about-list ul{margin-left: -30px;margin-top: -10px;}
+		#about-list li{border: 1px solid #000;border-radius: 50%;cursor: pointer;width: 10px;height: 10px;list-style: none;float: left;margin-right: 10px;}
+		#about-list li:hover{background: grey}
+		#about .about-last{float: left;width: 33%;padding-top:150px;height: 250px;}
+		#about .about-last img{margin-top: -150px;height: 400px;width: 100%}
+		#about-right:before{width: 0px;height: 0px;border:30px transparent solid;border-right-color: #fff;content: "";position: absolute;right: 100%;top:50%;}
+		#about-last1{background:#DF4C4C;color: white }
+		#about-last2{position: relative;}
+		#about-last1 a{color:white;text-decoration: none;border:1px solid #fff;width: 200px;height: 30px;display: block;margin-left: 27%;padding-top: 2%}
+		#about-last2 a{color:#FF4F4F;text-decoration: none;border:1px solid #FF4F4F;width: 200px;height: 30px;display: block;margin-left: 27%;padding-top: 2%}
+		#about-last3:before{width: 0px;height: 0px;border:20px transparent solid;border-left-color: #fff;content: "";position: absolute;}
+
+		#volunteer{clear:both;color: #aaa;}
+		#volunteer p{color: #aaa}
+		#vol-top{padding-top: 80px;padding-bottom: 80px;text-align: center;}
+		#vol-left{float: left;width: 30%;padding:50px 20px 50px 100px;line-height: 25px;}
+		#vol-left a{text-decoration: none;color:#666;font-size: 20px; }
+		#vol-right{width: 40%;padding:50px 100px;float: left;}
+		#vol-right form input[type="text"]{width: 250px;height: 50px;background-color: #eee;border:none;padding-left: 10px;margin-bottom:20px; }
+		#vol-right form textarea{width: 515px;height: 100px;padding-left: 10px;background: #eee;margin-bottom: 20px;border:none;}
+		#vol-right form input:last-child{width:530px;height: 40px;background: #eee;text-align: center;border:none; color:#000;font-size: 16px;cursor:pointer;}
+
+		footer #connect{clear: both;background-color: #32363F;text-align: center;padding: 10px;}
+		footer #connect h1,p,input{color: #fff}
+		footer #connect input[type="email"]{height: 40px;width: 20%}
+		footer #connect input[type="submit"]{height: 46px;width: 5%;border:none;background-color: #606061}
+		footer #connect ul li{list-style: none;display: inline;}
+		footer #footer{background-color: #33333B;height: 30px;color: #fff;text-align: center;}
+		footer #footer a{text-decoration: none;color:#fff;font: 16px "微软雅黑"}
+	</style>
+</head>
+<body>
+	<div>
+		<div id="nav">
+			<span><img src="img/1.jpg">&nbsp新世界</span>
+			<div>
+				<ul>
+					<li>首页</li>
+					<li>最新活动</li>
+					<li>项目介绍</li>
+					<li>爱心社区</li>
+					<li>关于我们</li>
+					<li><img src="img/2.jpg">登录</li>
+				</ul>
+			</div>
+		</div>
+		<div id="head">
+			<img src="img/3.jpg">
+			<div id="text">
+				<p>Time of new life</p>
+				<p>新时代，年轻的人们让我们一起<br>体验新生活，享受新生活</p>
+				<p><a href="#">开始体验</a></p>
+			</div>
+		</div>
+		<div id="solgan">
+			<table>
+				<tbody>
+					<tr>
+						<td><img src="img/4.jpg"></td>
+						<td><img src="img/5.jpg"></td>
+						<td><img src="img/6.jpg"></td>
+						<td><img src="img/7.jpg"></td>
+					</tr>
+					<tr id="solgan2">
+						<td>打造全新世界观，让你更<br>爱你的生活</td>
+						<td>丰富多彩的公益生活，发<br>挥新世界的主人公意识</td>
+						<td>时尚的新理念，超前体验<br>未知的生活</td>
+						<td>完善的培养机制，培养你<br>全新的世界观</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="search-world">
+			<br><br>
+			<img src="img/8.jpg">
+			<h1>关于新世界,你不知道的还有什么？</h1>	
+			<div id="search">
+				<h2>查找新世界城市活动信息</h2>
+				<p>每个城市都有不同的活动信息，请自主查询您所需要了解的城市</p>
+				<form action="" method="post">
+					<input type="text" name="" list="url_list" placeholder="国家">
+					<datalist id="url_list">
+						<option label="china" value="中国">
+						<option label="usa" value="美国">
+					</datalist>
+					<input type="text" name="" list="url_list" placeholder="省份">
+					<datalist id="url_list">
+						<option label="gd" value="广东">
+						<option label="hn" value="湖南">
+						<option label="zj" value="浙江">
+						<option label="fj" value="福建">
+					</datalist>
+					<input type="text" name="" list="url_list" placeholder="城市">
+					<datalist id="url_list">
+						<option label="bj" value="北京">
+						<option label="gz" value="广州">
+					</datalist>
+					<input id="search-button" type="submit" name="" value="搜索">
+				</form>
+			</div>
+			<div id="activity">
+				<div><img src="img/10.jpg"><h3>北京活动</h3><p>新社区大联盟</p></div>
+				<div><h2>上海活动</h2><p>夜上海新景观探索</p><img src="img/11.jpg"></div>
+				<div><img src="img/12.jpg"><h3>深圳活动</h3><p>全新海岸观点站</p></div>
+				<div><img src="img/13.jpg"><h3>香港活动</h3><p>奢侈消费大放送</p></div>
+			</div>
+		</div>
+		<div id="about">
+			<div><h1>新世界</h1><h2>TIME</h2><p>@新世界 - 北京<br>2016.04.01</p></div>
+			<div id="about-right">
+				<h2>新世界/01</h2>
+				<p>新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界</p>
+				<div id="about-list">
+					<a href="#">获取更多</a><br><br>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+			</div>
+			<div class="about-last" id="about-last1"><h2>新时代<br>关于爱生活的我们</h2><a href="#">获取更多</a></div>
+			<div class="about-last" id="about-last2"><h2>新时代<br>关于爱生活的我们</h2><a href="#">获取更多</a></div>
+			<div class="about-last" id="about-last3"><img src="img/12.jpg"></div>
+		</div>
+
+		<div id="volunteer">
+			<div id="vol-top"><h3>成为我们的志愿者</h3>
+				<p>新世界的大家庭需要每一个爱生活的人的加入，如果你够年轻，有梦想，有激情<br> 
+				那就不要犹豫，快来加入我们，成为改变所有人生活的人</p>
+			</div>
+			<div>
+				<div id="vol-left">
+					<p>新世界自愿者协议</p>
+					<p>加入新世界志愿者的人员必须遵守中华人民共和国的相关法律法规，并且本着平等自愿的原则 . . . . </p>
+					<p>新世界自愿者权利</p>
+					<p>新世界志愿者享受新世界内部所有资源共享的权力，并且享受所在市新世界活动的优先参与资格</p>
+					<a href="#">更多条款</a>
+				</div>
+				<div id="vol-right">
+					<form method="post" action="">
+						<input type="text" name="name" placeholder="姓名">
+						<input type="text" name="age" placeholder="年龄"><br>
+						<input type="text" name="connect" placeholder="联系方式">
+						<input type="text" name="connect-add" placeholder="联系地址"><br>
+						<textarea cols="" rows="" placeholder="详细介绍"></textarea><br>
+						<input type="submit" name="" value="提交申请">
+					</form>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div id="connect">
+				<h1>联系我们</h1>
+				<p>为了更好的获取我们最新的产品资讯，您可以留下您的电子邮箱快速订阅我们的产品资讯<br>
+				也可以通过以下任何方式关注我们动态</p>
+				<input type="email" name="" placeholder="someone@email.com"><input type="submit" name="" value="发送">
+				<ul>
+					<li><a href="#"><img src="img/14.jpg"></a></li>
+					<li><a href="#"><img src="img/15.jpg"></a></li>
+					<li><a href="#"><img src="img/16.jpg"></a></li>
+					<li><a href="#"><img src="img/17.jpg"></a></li>
+				</ul>
+			</div>
+			<div id="footer">
+				<span>&copy;新世界</span>
+				<a href="#top">back to top</a>
+			</div>
+		</footer>
+		
+	</div>
+</body>
+</html>

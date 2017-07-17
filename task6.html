@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>模拟报纸排版</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#main{width: 980px;height: 1386px;margin:0 auto;border: 1px solid #ccc;position: relative;padding:0 40px}
+		#top{background: #eee;border-bottom: 2px solid #938e8c}
+		#left-top{width:110px;background-color: #f36;font: 12px "黑体";color: #fff;padding-top: 49px;}
+		#right-top{font: 12px "黑体";color:#d54d5c;position: absolute;right: 40px;top:49px;}
+
+		#mid-left{float: left;width: 641px;position: relative;}
+		#mid-left #what{width: 260px;float: left;}
+		#pic_left{width: 191px;height: 301px;opacity: 0.3;background: green;position: absolute;top: 0px;}
+		#pic_right{width: 191px;height: 301px;opacity: 0.3;background: pink;position: absolute;top: 0px;right: 0px;}
+		#mid-left .underline{text-decoration: underline;font-style: bold;font:16px "Microsoft Yahei";}
+		#mid-left p{font: 12px/1.5em "Microsoft Yahei";opacity: 0.7}
+		#mid-left span{font:italic 12px/1.25em "Microsoft Yahei";color: #cd4a48;}
+		#when{width:195px;float: left;margin-left: 20px;}
+		#how{width:130px;float: right;}
+
+		#bottom-left{width: 415px;float: left;}
+		#bottom-right{width: 458px;float: right;}
+		#bottom-right-bottom{background-color: #ccc}
+
+		.first-big1{font: italic bold 72px "黑体";color: #f5e327;}
+		.first-big2{font: 70px "Microsoft Yahei";color: #f5e327;float: left;}
+		#bottom-left p:first-child{font: bold 42px "黑体";color: #11456b;line-height: 16px}
+		#bottom-left p:nth-child(2){font: bold 33px "黑体";color: #11456b;margin-top: -25px;}
+
+		.small-letter{font: 12px "宋体";line-height: 18px;color: #767777;text-indent: 2em;}
+		#bottom-left p:nth-child(7),p:nth-child(6){text-indent: 1.7em;margin-top: -14px;}
+		#bottom-left img{float: right;margin-top:-25px;margin-left: 10px;}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="top">
+			<div id="left-top">ife.baidu.com</div>
+			<div id="right-top">2016.03</div>
+		</div>
+		<div id="middle">
+			<div id="mid-left">
+				<div><img src="img/picture_pc.jpg">
+					<div id="pic_left"></div>
+					<div id="pic_right"></div>
+				</div>
+				<div id="what">
+					<h3 class="underline" style="color:#418c59">what</h3>
+					<p>狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗</p>
+				</div>
+				<div id="when" >
+					<h3 class="underline" style="color: #d2994f">when</h3>
+					<p>狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗</p>
+				</div>
+				<div id="how" >
+					<h3 class="underline" style="color:#cc7680">how</h3>
+					<p>狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗狗</p>
+					<p>What--------<span>40%</span></p>
+					<p>What--------<span>30%</span></p>	
+					<p>What--------<span>30%</span></p>	
+				</div>
+			</div>
+			<div id="mid-right">
+				<p class="underline">ABOUT</p>
+				<p class="underline">TECHNOLOGE</p>
+				<p>about technologe about technologe about technologe</p>
+				<p>700</p>
+				<p>3.2CSS CSS CSS</p>
+			</div>
+		</div>
+		<div id="bottom">
+			<div id="bottom-left">
+				<p><span class="first-big1">THE</span> TECHNOLOGE OF FRONT</p>
+				<p>前端技术领域</p><hr>
+				<p><span class="first-big2">前</span><span class="small-letter">端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</span></p><img src="img/picture_pc3.jpg">
+				<p><span class="small-letter">端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前</span></p>
+				<p><span class="small-letter">端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端端前端前端前端前端前端</span></p>
+				
+			</div>
+			<div id="bottom-right">
+				<img src="img/picture_pc2.jpg">
+				<div>前端技术</div>
+				<div id="bottom-right-bottom">
+					<ul>
+						<li>前端</li>
+						<li>前端</li>
+						<li>前端</li>
+					</ul>
+					<span id="num">one two three four fivce</span>
+					<span id="hell">hello word</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
