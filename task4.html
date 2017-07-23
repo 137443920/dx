@@ -9,13 +9,19 @@
 	</style>
 </head>
 <body>
+	<p>在文本框输入10-100的数字，然后会根据数字作为高度显示队列，可以左右侧入，也可以左右侧出，最后可以有小到大排序。最多只能输入60个</p>
 	<input type="text" name="" value="" id="num">
 	<input type="button" name="" value="左侧入" onclick="leftIn()">
 	<input type="button" name="" value="右侧入" onclick="rightIn()">
 	<input type="button" name="" value="左侧出" onclick="leftOut()">
 	<input type="button" name="" value="右侧出" onclick="rightOut()">
 	<div id="show"></div>
-	<input type="button" name="" value="排序" onclick="resort()">
+	<input type="button" name="" value="排序" onclick="resort()"><br>
+	<p>这个主要用到js的节点处理，获取文本框的值，要判断输入的值是否是数字，是否10-100，是否为空，然后作为新元素的高，选择从左侧入，
+	   就是用插入方法，insertBefore(新元素，旧元素)，从旧元素前插入，右侧入就直接添加子节点，默认放在后面。删除元素直接用removeChild
+	   这个方法，利用数组下标，寻找第一个和最后一个元素，从而完成左侧出，右侧出。排序的话，就先遍历所有的元素的高度，然后用xx.style.height
+	   拿出来，不过会带有单位px，就用substr（0,2）字符串处理方法，获取第1,2位就好了。然后存入一个新的数组，sort(新的数组),
+	   就从小到大排好了，最后就是遍历元素，用replaceChild(新数组[i]，旧数组[i])取代原先的元素，从而实现排列</p>	
 	<script type="text/javascript">
 		var number = document.getElementById('num');
 		var show = document.getElementById('show');
