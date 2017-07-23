@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js练习4</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		div{border:2px solid #ccc;height:120px;padding-bottom: 0px;}
+		li{background-color:#900;list-style:none;display: inline-block;width:20px;bottom: 0px;margin-left: 2px;position: relative;border:1px solid #ccc;}
+	</style>
+</head>
+<body>
+	<input type="text" name="" value="" id="num">
+	<input type="button" name="" value="左侧入" onclick="leftIn()">
+	<input type="button" name="" value="右侧入" onclick="rightIn()">
+	<input type="button" name="" value="左侧出" onclick="leftOut()">
+	<input type="button" name="" value="右侧出" onclick="rightOut()">
+	<div id="show"></div>
+	<input type="button" name="" value="排序" onclick="resort()">
+	<script type="text/javascript">
+		var number = document.getElementById('num');
+		var show = document.getElementById('show');
+		var left = 0;
+		function leftIn(){  //左侧入
+			var p1 = document.createElement('li');  //创建li标签
+			var val = document.getElementById('num').value;  //获取文本框里的内容
+			var len = show.childNodes.length;  //获取show中子元素的长度
+			if(val==""||isNaN(val)||val<10||val>100){  //isNaN(val)判断，检查参数是否为非数值,isNaN返回true
+				alert("请输入10-100的数字");
+			}else if(len>=60){alert("最多只能装60个队列")}
+			else{
+				p1.style.height = val+"px";
+				//p1.style.left = left+"px";
+				show.insertBefore(p1,show.childNodes[0]); //在show第一个子元素前面插入p1
+				//left = left +25;
+				//alert(p1.style.width);
+			}		
+		}
+		function rightIn(){  //右侧入
+			var p1 = document.createElement('li');
+			var val = document.getElementById('num').value;
+			var len = show.childNodes.length;  //获取show中子元素的长度
+			if(val==""||isNaN(val)||val<10||val>100){ 
+				alert("请输入10-100的数字");
+			}else if(len>=60){alert("最多只能装60个队列")}
+			else{
+				p1.style.height = val+"px";
+				//p1.style.marginLeft = left+"px"
+				show.appendChild(p1);  //直接在show里面加子元素 
+				//left = left +25;
+			}
+		}
+		function leftOut(){  //左侧出
+			var len = show.childNodes.length;  //获取show中子元素的长度
+			if(len!=0){   //判断，如果子元素不为空
+				alert("删除了"+show.childNodes[0].style.height);
+				show.removeChild(show.childNodes[0]);	//根据数组下标，删除第一个子元素
+			}else{
+				alert("队列为空");
+			}
+
+		}
+		function rightOut(){
+			var len = show.childNodes.length
+			if(len!=0){
+				alert("删除了"+show.childNodes[len-1].style.height);
+				show.removeChild(show.childNodes[len-1]);	//根据数组长度，删除最后一个子元素
+			}else{
+				alert("队列为空");
+			}	
+		}
+		function resort(){
+			//alert(show.childNodes.length);
+			var height = []
+			for (var i = 0; i < show.childNodes.length; i++) {
+				height[i] = show.childNodes[i].style.height.substr(0,2);//获取高度放到数组height里面
+				//alert(height[i]);
+			}
+			height.sort();  //将height 数组里的高度从小到大排序
+			for (var i = 0; i < show.childNodes.length; i++) {//创建新的li标签取代旧的
+				//alert(height[i]);
+				var li = document.createElement('li');  //创建li标签
+				li.style.height=height[i]+"px";  //给li元素一个高度
+				show.replaceChild(li,show.childNodes[i]);  //用新建的li元素取代原先的
+			}
+		}
+	</script>
+</body>
+</html>
